@@ -71,7 +71,10 @@ services:
   vaultwarden:
     <<: *security-baseline
     image: vaultwarden/server:latest
-    networks: ['main']
+    networks:
+      main:
+        aliases:
+          - vw-internal
     restart: unless-stopped
     hostname: vaultwarden
     user: 1000:1000
