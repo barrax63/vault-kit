@@ -86,7 +86,7 @@ services:
       - path: .env
         required: true
     environment:
-      - DOMAIN=https://${HOST}
+      - DOMAIN=https://${HOST}:${NGINX_PORT:-8443}
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     deploy:
       resources:
