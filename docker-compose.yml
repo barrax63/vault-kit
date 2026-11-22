@@ -54,10 +54,10 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 1G
+          memory: 512M   # > shared_buffers 256MB (postgres-init) + work/maintenance memory
         reservations:
           cpus: '0.5'
-          memory: 512M
+          memory: 64M
     logging: *default-logging
 
   vaultwarden-init:
@@ -96,10 +96,10 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 2G
+          memory: 256M
         reservations:
           cpus: '0.5'
-          memory: 1G
+          memory: 32M
     logging: *default-logging
 
   nginx:
@@ -134,8 +134,8 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 128M
+          memory: 64M
         reservations:
           cpus: '0.1'
-          memory: 32M
+          memory: 16M
     logging: *default-logging
